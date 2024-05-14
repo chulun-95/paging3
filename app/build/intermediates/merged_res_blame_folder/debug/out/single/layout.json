@@ -1,0 +1,22 @@
+[
+    {
+        "merged": "F:\\App_Android\\android-pagination-paging-3.0\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_cats.xml",
+        "source": "F:\\App_Android\\android-pagination-paging-3.0\\app\\src\\main\\res\\layout\\activity_cats.xml"
+    },
+    {
+        "merged": "F:\\App_Android\\android-pagination-paging-3.0\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\item_load_state.xml",
+        "source": "F:\\App_Android\\android-pagination-paging-3.0\\app\\src\\main\\res\\layout\\item_load_state.xml"
+    },
+    {
+        "merged": "F:\\App_Android\\android-pagination-paging-3.0\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_main.xml",
+        "source": "F:\\App_Android\\android-pagination-paging-3.0\\app\\src\\main\\res\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "F:\\App_Android\\android-pagination-paging-3.0\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\item_seperator.xml",
+        "source": "F:\\App_Android\\android-pagination-paging-3.0\\app\\src\\main\\res\\layout\\item_seperator.xml"
+    },
+    {
+        "merged": "F:\\App_Android\\android-pagination-paging-3.0\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\item_cat.xml",
+        "source": "F:\\App_Android\\android-pagination-paging-3.0\\app\\src\\main\\res\\layout\\item_cat.xml"
+    }
+]
