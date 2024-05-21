@@ -30,6 +30,7 @@ class CatPagingSource(private val service: CatApi) : PagingSource<Int, Cat>() {
     }
 
     override fun getRefreshKey(state: PagingState<Int, Cat>): Int? {
+        Log.d("TAG", "getRefreshKey() called with: state = $state")
         return state.anchorPosition?.let { anchorPosition ->
             state.closestPageToPosition(anchorPosition)?.prevKey?.plus(1)
                 ?: state.closestPageToPosition(anchorPosition)?.nextKey?.minus(1)

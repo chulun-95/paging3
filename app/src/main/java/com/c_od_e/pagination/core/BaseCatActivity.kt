@@ -8,13 +8,19 @@ import androidx.paging.LoadState
 import com.c_od_e.pagination.databinding.ActivityCatsBinding
 import com.c_od_e.pagination.view.adapter.CatsAdapter
 import com.c_od_e.pagination.view.adapter.CatsLoadStateAdapter
+import com.c_od_e.pagination.view.db.Actions
 
 abstract class BaseCatActivity : AppCompatActivity() {
     abstract val viewModel: BaseViewModel
     lateinit var binding: ActivityCatsBinding
-    val adapter by lazy { CatsAdapter() }
+    val adapter by lazy {
+        CatsAdapter {
+            viewModel.removeItem(it)
+        }
+    }
 
     fun initAdapter(isMediator: Boolean = false) {
+        adapter.refresh()
         binding.recyclerView.adapter = adapter.withLoadStateHeaderAndFooter(
             header = CatsLoadStateAdapter { adapter.retry() },
             footer = CatsLoadStateAdapter { adapter.retry() }

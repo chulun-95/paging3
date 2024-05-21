@@ -22,9 +22,9 @@ class DatabaseActivity : BaseCatActivity() {
         setContentView(binding.root)
         initAdapter()
         viewModel.deleteDummyData()
-        binding.buttonGetData.setOnClickListener {
+//        binding.buttonGetData.setOnClickListener {
             viewModel.fillWithDummyCats()
-        }
+//        }
         lifecycleScope.launch {
             viewModel.cats.collectLatest {
                 adapter.submitData(it)

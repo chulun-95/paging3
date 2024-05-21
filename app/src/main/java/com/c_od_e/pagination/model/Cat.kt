@@ -5,4 +5,4 @@ import androidx.room.PrimaryKey
 
 
 @Entity(tableName = "cats")
-data class Cat(@PrimaryKey val id: String, val url: String)
+data class Cat(@PrimaryKey val id: String, val url: String, var check: Boolean = false)

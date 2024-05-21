@@ -6,11 +6,17 @@ import androidx.paging.ExperimentalPagingApi
 import com.c_od_e.pagination.core.BaseViewModel
 import com.c_od_e.pagination.data.CatsRepository
 import com.c_od_e.pagination.model.Cat
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 @ExperimentalPagingApi
 class DataBaseViewModel @ViewModelInject constructor(private val repository: CatsRepository) :
     BaseViewModel() {
+    override fun removeItem(it: Cat){
+        viewModelScope.launch (Dispatchers.IO){
+            repository.removeItem(it)
+        }
+    }
 
     override val dataSource = repository.getCatsFromDb()
 
@@ -29,4 +35,9 @@ class DataBaseViewModel @ViewModelInject constructor(private val repository: Cat
             repository.deleteDummyData()
         }
     }
+}
+
+sealed class Actions {
+    data class Remove(val item: Cat) : Actions()
+    data class Insert(val item: Cat) : Actions()
 }

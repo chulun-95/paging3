@@ -23,7 +23,7 @@ class CatsRepository @Inject constructor(
         return Pager(
             config = PagingConfig(
                 pageSize = PAGE_SIZE,
-                maxSize = PAGE_SIZE * 5 ,
+//                maxSize = PAGE_SIZE * 5 ,
                 prefetchDistance = PAGE_SIZE * 2,
                 initialLoadSize = PAGE_SIZE ,
                 enablePlaceholders = false
@@ -73,5 +73,9 @@ class CatsRepository @Inject constructor(
 
     suspend fun deleteDummyData() {
         database.getCatDao().deleteAll()
+    }
+
+    suspend fun removeItem(it: Cat) {
+        database.getCatDao().deleteByCatId(it.id)
     }
 }

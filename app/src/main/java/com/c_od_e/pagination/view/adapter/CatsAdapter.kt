@@ -4,9 +4,10 @@ import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.c_od_e.pagination.model.Cat
 import com.c_od_e.pagination.model.CatListItem
 
-class CatsAdapter : PagingDataAdapter<CatListItem, RecyclerView.ViewHolder>(COMPARATOR) {
+class CatsAdapter(val onRemove: (Cat) -> Any) : PagingDataAdapter<CatListItem, RecyclerView.ViewHolder>(COMPARATOR) {
 
     override fun getItemViewType(position: Int): Int {
         return when (getItem(position)) {
@@ -27,7 +28,13 @@ class CatsAdapter : PagingDataAdapter<CatListItem, RecyclerView.ViewHolder>(COMP
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         getItem(position)?.let {
             when (it) {
-                is CatListItem.CatItem -> (holder as? CatViewHolder)?.bind(it.cat)
+                is CatListItem.CatItem -> (holder as? CatViewHolder)?.bind(it.cat,{
+                    notifyItemChanged(position)
+                },{
+                    onRemove.invoke(it.cat)
+//                    snapshot().toMutableList().apply { removeAt(position) }
+//                    notifyItemRemoved(position)
+                })
                 is CatListItem.SeparatorItem -> (holder as? SeparatorViewHolder)?.bind(it.letter)
             }
         }

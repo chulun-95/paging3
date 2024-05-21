@@ -18,4 +18,7 @@ interface CatDao {
 
     @Query("DELETE FROM cats")
     suspend fun deleteAll()
+
+    @Query("DELETE FROM cats WHERE id = :userId")
+    fun deleteByCatId(userId: String)
 }

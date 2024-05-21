@@ -10,7 +10,6 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
-
 @ExperimentalPagingApi
 @AndroidEntryPoint
 class NetworkOnlyActivity : BaseCatActivity() {
@@ -27,5 +26,8 @@ class NetworkOnlyActivity : BaseCatActivity() {
                 adapter.submitData(it)
             }
         }
+//        binding.buttonGetData.setOnClickListener {
+//            adapter.refresh()
+//        }
     }
 }
